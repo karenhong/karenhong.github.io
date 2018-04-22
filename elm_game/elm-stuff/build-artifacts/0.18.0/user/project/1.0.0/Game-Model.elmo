@@ -1,0 +1,20 @@
+var _user$project$Game_Model$msPerUpdate = 15.0;
+var _user$project$Game_Model$Model = F3(
+	function (a, b, c) {
+		return {state: a, platforms: b, avatar: c};
+	});
+var _user$project$Game_Model$Over = {ctor: 'Over'};
+var _user$project$Game_Model$Playing = {ctor: 'Playing'};
+var _user$project$Game_Model$model = {
+	state: _user$project$Game_Model$Playing,
+	platforms: {
+		ctor: '::',
+		_0: _user$project$Game_GamePlatform_Model$model,
+		_1: {
+			ctor: '::',
+			_0: _user$project$Game_GamePlatform_Model$ground,
+			_1: {ctor: '[]'}
+		}
+	},
+	avatar: _user$project$Game_Avatar_Model$model
+};

@@ -1,0 +1,112 @@
+var _user$project$Game_View$formatText = function (text) {
+	return _evancz$elm_graphics$Element$leftAligned(
+		_evancz$elm_graphics$Text$monospace(
+			A2(
+				_evancz$elm_graphics$Text$height,
+				30,
+				_evancz$elm_graphics$Text$bold(text))));
+};
+var _user$project$Game_View$invincibilityForm = A2(
+	_evancz$elm_graphics$Collage$move,
+	{ctor: '_Tuple2', _0: _user$project$ViewUtil$halfWidth - 80, _1: _user$project$ViewUtil$halfHeight - 80},
+	_evancz$elm_graphics$Collage$toForm(
+		A3(_evancz$elm_graphics$Element$image, 100, 100, '../graphic/env/collectible/shield.png')));
+var _user$project$Game_View$gameOverForm = _evancz$elm_graphics$Collage$toForm(
+	_user$project$Game_View$formatText(
+		A2(
+			_evancz$elm_graphics$Text$color,
+			_elm_lang$core$Color$orange,
+			_evancz$elm_graphics$Text$fromString('Game Over!\nPress ENTER to play again.'))));
+var _user$project$Game_View$scoreString = function (score) {
+	var scoreString = _elm_lang$core$Basics$toString(score);
+	return A2(
+		_elm_lang$core$Basics_ops['++'],
+		A2(
+			_elm_lang$core$String$repeat,
+			6 - _elm_lang$core$String$length(scoreString),
+			'0'),
+		scoreString);
+};
+var _user$project$Game_View$content = function (game) {
+	return A2(
+		_elm_lang$core$Basics_ops['++'],
+		'HP : ',
+		A2(
+			_elm_lang$core$Basics_ops['++'],
+			_elm_lang$core$Basics$toString(game.avatar.hp),
+			A2(
+				_elm_lang$core$Basics_ops['++'],
+				'\nSPEED X ',
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					_elm_lang$core$Basics$toString(game.avatar.speed.multiplier),
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						'\nSCORE : ',
+						_user$project$Game_View$scoreString(game.avatar.score))))));
+};
+var _user$project$Game_View$textElement = function (game) {
+	return _user$project$Game_View$formatText(
+		A2(
+			_evancz$elm_graphics$Text$color,
+			_elm_lang$core$Color$white,
+			_evancz$elm_graphics$Text$fromString(
+				_user$project$Game_View$content(game))));
+};
+var _user$project$Game_View$height = _elm_lang$core$Basics$truncate(_user$project$ViewUtil$height);
+var _user$project$Game_View$width = _elm_lang$core$Basics$truncate(_user$project$ViewUtil$width);
+var _user$project$Game_View$elementGame = function (game) {
+	var textY = _user$project$ViewUtil$halfHeight - 80;
+	var textX = (0 - _user$project$ViewUtil$halfWidth) + 150;
+	var overlayForms = A2(
+		_elm_lang$core$Basics_ops['++'],
+		_user$project$Game_GamePlatform_View$platformForms(game.platforms),
+		A2(
+			_elm_lang$core$Basics_ops['++'],
+			_user$project$Game_GamePlatform_View$platformUnitForms(game.platforms),
+			{
+				ctor: '::',
+				_0: A2(
+					_evancz$elm_graphics$Collage$move,
+					{ctor: '_Tuple2', _0: game.avatar.x, _1: game.avatar.y},
+					_user$project$Game_Avatar_View$avatarForm(game.avatar)),
+				_1: {
+					ctor: '::',
+					_0: A2(
+						_evancz$elm_graphics$Collage$move,
+						{ctor: '_Tuple2', _0: textX, _1: textY},
+						_evancz$elm_graphics$Collage$toForm(
+							_user$project$Game_View$textElement(game))),
+					_1: {ctor: '[]'}
+				}
+			}));
+	var background = A3(_evancz$elm_graphics$Element$image, _user$project$Game_View$width, _user$project$Game_View$height, '../graphic/env/background.png');
+	var toRender = {
+		ctor: '::',
+		_0: _evancz$elm_graphics$Collage$toForm(background),
+		_1: overlayForms
+	};
+	return _elm_lang$core$Native_Utils.eq(game.state, _user$project$Game_Model$Over) ? A3(
+		_evancz$elm_graphics$Collage$collage,
+		_user$project$Game_View$width,
+		_user$project$Game_View$height,
+		A2(
+			_elm_lang$core$Basics_ops['++'],
+			toRender,
+			{
+				ctor: '::',
+				_0: _user$project$Game_View$gameOverForm,
+				_1: {ctor: '[]'}
+			})) : (game.avatar.invincible.isInvincible ? A3(
+		_evancz$elm_graphics$Collage$collage,
+		_user$project$Game_View$width,
+		_user$project$Game_View$height,
+		A2(
+			_elm_lang$core$Basics_ops['++'],
+			toRender,
+			{
+				ctor: '::',
+				_0: _user$project$Game_View$invincibilityForm,
+				_1: {ctor: '[]'}
+			})) : A3(_evancz$elm_graphics$Collage$collage, _user$project$Game_View$width, _user$project$Game_View$height, toRender));
+};

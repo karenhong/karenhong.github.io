@@ -1,0 +1,23 @@
+var _user$project$Game_GamePlatform_Model$Model = F4(
+	function (a, b, c, d) {
+		return {w: a, x: b, y: c, unit: d};
+	});
+var _user$project$Game_GamePlatform_Model$PlatformToGenerate = F3(
+	function (a, b, c) {
+		return {w: a, heightDiff: b, unit: c};
+	});
+var _user$project$Game_GamePlatform_Model$None = {ctor: 'None'};
+var _user$project$Game_GamePlatform_Model$Shield = {ctor: 'Shield'};
+var _user$project$Game_GamePlatform_Model$Boost = {ctor: 'Boost'};
+var _user$project$Game_GamePlatform_Model$ThreeBones = {ctor: 'ThreeBones'};
+var _user$project$Game_GamePlatform_Model$TwoBones = {ctor: 'TwoBones'};
+var _user$project$Game_GamePlatform_Model$HP = {ctor: 'HP'};
+var _user$project$Game_GamePlatform_Model$Zombie = function (a) {
+	return {ctor: 'Zombie', _0: a};
+};
+var _user$project$Game_GamePlatform_Model$Waste = {ctor: 'Waste'};
+var _user$project$Game_GamePlatform_Model$Spikes = {ctor: 'Spikes'};
+var _user$project$Game_GamePlatform_Model$model = A4(_user$project$Game_GamePlatform_Model$Model, 200, (0 - _user$project$ViewUtil$halfWidth) / 2, (0 - _user$project$ViewUtil$halfHeight) / 2, _user$project$Game_GamePlatform_Model$Spikes);
+var _user$project$Game_GamePlatform_Model$ground = A4(_user$project$Game_GamePlatform_Model$Model, _user$project$ViewUtil$width / 2, 0 - _user$project$ViewUtil$halfWidth, (0 - _user$project$ViewUtil$halfHeight) + (_user$project$ViewUtil$platformHeight / 2), _user$project$Game_GamePlatform_Model$Spikes);
+var _user$project$Game_GamePlatform_Model$Right = {ctor: 'Right'};
+var _user$project$Game_GamePlatform_Model$Left = {ctor: 'Left'};

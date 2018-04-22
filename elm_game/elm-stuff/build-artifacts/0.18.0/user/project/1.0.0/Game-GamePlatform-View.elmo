@@ -1,0 +1,89 @@
+var _user$project$Game_GamePlatform_View$platformUnitForm = function (platform) {
+	var unit = function () {
+		var _p0 = platform.unit;
+		switch (_p0.ctor) {
+			case 'Spikes':
+				return 'hazard/spikes';
+			case 'Waste':
+				return 'hazard/nuclear_waste';
+			case 'HP':
+				return 'collectible/hp';
+			case 'TwoBones':
+				return 'collectible/bones_2';
+			case 'Boost':
+				return 'collectible/boost';
+			case 'Shield':
+				return 'collectible/shield';
+			default:
+				return 'collectible/bones_3';
+		}
+	}();
+	var src = A2(_elm_lang$core$Basics_ops['++'], '../graphic/env/', unit);
+	var unitHeight = 50;
+	var unitWidth = 50;
+	var _p1 = platform.unit;
+	if (_p1.ctor === 'Zombie') {
+		var _p2 = _p1._0;
+		var zombieRightForm = _evancz$elm_graphics$Collage$toForm(
+			A3(_evancz$elm_graphics$Element$image, 108, 130, '../graphic/env/hazard/zombie/right.gif'));
+		var zombieLeftForm = _evancz$elm_graphics$Collage$toForm(
+			A3(_evancz$elm_graphics$Element$image, 108, 130, '../graphic/env/hazard/zombie/left.gif'));
+		var zombieY = platform.y + 70;
+		var zombieX = platform.x + _elm_lang$core$Tuple$first(_p2);
+		return _elm_lang$core$Native_Utils.eq(
+			_elm_lang$core$Tuple$second(_p2),
+			_user$project$Game_GamePlatform_Model$Left) ? A2(
+			_evancz$elm_graphics$Collage$move,
+			{ctor: '_Tuple2', _0: zombieX, _1: zombieY},
+			_evancz$elm_graphics$Collage$group(
+				{
+					ctor: '::',
+					_0: A2(_evancz$elm_graphics$Collage$alpha, 1, zombieLeftForm),
+					_1: _elm_lang$core$List$singleton(
+						A2(_evancz$elm_graphics$Collage$alpha, 0, zombieRightForm))
+				})) : A2(
+			_evancz$elm_graphics$Collage$move,
+			{ctor: '_Tuple2', _0: zombieX, _1: zombieY},
+			_evancz$elm_graphics$Collage$group(
+				{
+					ctor: '::',
+					_0: A2(_evancz$elm_graphics$Collage$alpha, 0, zombieLeftForm),
+					_1: _elm_lang$core$List$singleton(
+						A2(_evancz$elm_graphics$Collage$alpha, 1, zombieRightForm))
+				}));
+	} else {
+		return A2(
+			_evancz$elm_graphics$Collage$move,
+			{ctor: '_Tuple2', _0: platform.x, _1: platform.y + 40},
+			_evancz$elm_graphics$Collage$toForm(
+				A3(
+					_evancz$elm_graphics$Element$image,
+					unitWidth,
+					unitHeight,
+					A2(_elm_lang$core$Basics_ops['++'], src, '.png'))));
+	}
+};
+var _user$project$Game_GamePlatform_View$platformUnitForms = function (platforms) {
+	return A2(
+		_elm_lang$core$List$map,
+		_user$project$Game_GamePlatform_View$platformUnitForm,
+		A2(
+			_elm_lang$core$List$filter,
+			function (platform) {
+				return !_elm_lang$core$Native_Utils.eq(platform.unit, _user$project$Game_GamePlatform_Model$None);
+			},
+			platforms));
+};
+var _user$project$Game_GamePlatform_View$platformForm = function (platform) {
+	var platRect = A2(
+		_evancz$elm_graphics$Collage$filled,
+		_elm_lang$core$Color$darkGrey,
+		A2(_evancz$elm_graphics$Collage$rect, platform.w, _user$project$ViewUtil$platformHeight));
+	return A2(
+		_evancz$elm_graphics$Collage$move,
+		{ctor: '_Tuple2', _0: platform.x, _1: platform.y},
+		platRect);
+};
+var _user$project$Game_GamePlatform_View$platformForms = function (platforms) {
+	return A2(_elm_lang$core$List$map, _user$project$Game_GamePlatform_View$platformForm, platforms);
+};

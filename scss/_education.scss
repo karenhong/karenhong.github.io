@@ -1,0 +1,9 @@
+// Styling for the education section
+.list-group-item-custom {
+  background-color: $bg-primary;
+  &:active,
+  &:focus,
+  &:hover {
+    background-color: darken($bg-primary, 5%);
+  }
+}

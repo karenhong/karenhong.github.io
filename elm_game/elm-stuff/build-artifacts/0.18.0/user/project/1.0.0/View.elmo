@@ -1,0 +1,279 @@
+var _user$project$View$divStyle = _elm_lang$html$Html_Attributes$style(
+	{
+		ctor: '::',
+		_0: {ctor: '_Tuple2', _0: 'width', _1: '360px'},
+		_1: {
+			ctor: '::',
+			_0: {ctor: '_Tuple2', _0: 'height', _1: '200px'},
+			_1: {
+				ctor: '::',
+				_0: {ctor: '_Tuple2', _0: 'font-size', _1: '1.5em'},
+				_1: {
+					ctor: '::',
+					_0: {ctor: '_Tuple2', _0: 'text-align', _1: 'center'},
+					_1: {
+						ctor: '::',
+						_0: {ctor: '_Tuple2', _0: 'color', _1: 'orange'},
+						_1: {
+							ctor: '::',
+							_0: {ctor: '_Tuple2', _0: 'top', _1: '50%'},
+							_1: {
+								ctor: '::',
+								_0: {ctor: '_Tuple2', _0: 'left', _1: '50%'},
+								_1: {
+									ctor: '::',
+									_0: {ctor: '_Tuple2', _0: 'position', _1: 'absolute'},
+									_1: {
+										ctor: '::',
+										_0: {ctor: '_Tuple2', _0: 'margin', _1: '-80px 0 0 -180px'},
+										_1: {
+											ctor: '::',
+											_0: {ctor: '_Tuple2', _0: 'z-index', _1: '15'},
+											_1: {ctor: '[]'}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	});
+var _user$project$View$inputStyle = _elm_lang$html$Html_Attributes$style(
+	{
+		ctor: '::',
+		_0: {ctor: '_Tuple2', _0: 'width', _1: '100%'},
+		_1: {
+			ctor: '::',
+			_0: {ctor: '_Tuple2', _0: 'padding', _1: '10px 15px'},
+			_1: {
+				ctor: '::',
+				_0: {ctor: '_Tuple2', _0: 'font-size', _1: '1.5em'},
+				_1: {
+					ctor: '::',
+					_0: {ctor: '_Tuple2', _0: 'text-align', _1: 'center'},
+					_1: {
+						ctor: '::',
+						_0: {ctor: '_Tuple2', _0: 'border', _1: 'none'},
+						_1: {
+							ctor: '::',
+							_0: {ctor: '_Tuple2', _0: 'background-color', _1: 'rgba(0, 0, 0, 0)'},
+							_1: {
+								ctor: '::',
+								_0: {ctor: '_Tuple2', _0: 'outline', _1: 'none'},
+								_1: {
+									ctor: '::',
+									_0: {ctor: '_Tuple2', _0: 'color', _1: 'white'},
+									_1: {ctor: '[]'}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	});
+var _user$project$View$bodyStyle = _elm_lang$html$Html_Attributes$style(
+	{
+		ctor: '::',
+		_0: {ctor: '_Tuple2', _0: 'backgroundImage', _1: 'url(../graphic/env/startMenu.png)'},
+		_1: {
+			ctor: '::',
+			_0: {ctor: '_Tuple2', _0: 'background-repeat', _1: 'no-repeat'},
+			_1: {
+				ctor: '::',
+				_0: {ctor: '_Tuple2', _0: 'background-position', _1: 'center'},
+				_1: {ctor: '[]'}
+			}
+		}
+	});
+var _user$project$View$leftAlignColumn = _elm_lang$html$Html_Attributes$style(
+	{
+		ctor: '::',
+		_0: {ctor: '_Tuple2', _0: 'text-align', _1: 'left'},
+		_1: {ctor: '[]'}
+	});
+var _user$project$View$highScoreRow = function (highScore) {
+	return A2(
+		_elm_lang$html$Html$tr,
+		{ctor: '[]'},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$td,
+				{
+					ctor: '::',
+					_0: _user$project$View$leftAlignColumn,
+					_1: {ctor: '[]'}
+				},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text(highScore.name),
+					_1: {ctor: '[]'}
+				}),
+			_1: {
+				ctor: '::',
+				_0: A2(
+					_elm_lang$html$Html$td,
+					{ctor: '[]'},
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html$text(
+							_elm_lang$core$Basics$toString(highScore.score)),
+						_1: {ctor: '[]'}
+					}),
+				_1: {ctor: '[]'}
+			}
+		});
+};
+var _user$project$View$highScoreTable = function (highScores) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{ctor: '[]'},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$table,
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$style(
+						{
+							ctor: '::',
+							_0: {ctor: '_Tuple2', _0: 'width', _1: '100%'},
+							_1: {ctor: '[]'}
+						}),
+					_1: {ctor: '[]'}
+				},
+				{
+					ctor: '::',
+					_0: A2(
+						_elm_lang$html$Html$thead,
+						{ctor: '[]'},
+						{
+							ctor: '::',
+							_0: A2(
+								_elm_lang$html$Html$tr,
+								{ctor: '[]'},
+								{
+									ctor: '::',
+									_0: A2(
+										_elm_lang$html$Html$th,
+										{
+											ctor: '::',
+											_0: _user$project$View$leftAlignColumn,
+											_1: {ctor: '[]'}
+										},
+										{
+											ctor: '::',
+											_0: _elm_lang$html$Html$text('Player'),
+											_1: {ctor: '[]'}
+										}),
+									_1: {
+										ctor: '::',
+										_0: A2(
+											_elm_lang$html$Html$th,
+											{ctor: '[]'},
+											{
+												ctor: '::',
+												_0: _elm_lang$html$Html$text('Score'),
+												_1: {ctor: '[]'}
+											}),
+										_1: {ctor: '[]'}
+									}
+								}),
+							_1: {ctor: '[]'}
+						}),
+					_1: {
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html$tbody,
+							{ctor: '[]'},
+							A2(_elm_lang$core$List$map, _user$project$View$highScoreRow, highScores)),
+						_1: {ctor: '[]'}
+					}
+				}),
+			_1: {ctor: '[]'}
+		});
+};
+var _user$project$View$view = function (model) {
+	var _p0 = model.size;
+	var width = _p0.width;
+	var height = _p0.height;
+	var _p1 = model.screen;
+	if (_p1.ctor === 'StartScreen') {
+		return A2(
+			_elm_lang$html$Html$body,
+			{
+				ctor: '::',
+				_0: _user$project$View$bodyStyle,
+				_1: {ctor: '[]'}
+			},
+			{
+				ctor: '::',
+				_0: A2(
+					_elm_lang$html$Html$div,
+					{
+						ctor: '::',
+						_0: _user$project$View$divStyle,
+						_1: {ctor: '[]'}
+					},
+					{
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html$h3,
+							{ctor: '[]'},
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html$text('[ Press ENTER to begin ]'),
+								_1: {ctor: '[]'}
+							}),
+						_1: {
+							ctor: '::',
+							_0: _elm_lang$html$Html$text('You are playing as: '),
+							_1: {
+								ctor: '::',
+								_0: A2(
+									_elm_lang$html$Html$input,
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html_Attributes$placeholder('Enter your name'),
+										_1: {
+											ctor: '::',
+											_0: _elm_lang$html$Html_Attributes$value(model.playerName),
+											_1: {
+												ctor: '::',
+												_0: _elm_lang$html$Html_Events$onInput(_user$project$Update$InputName),
+												_1: {
+													ctor: '::',
+													_0: _user$project$View$inputStyle,
+													_1: {ctor: '[]'}
+												}
+											}
+										}
+									},
+									{ctor: '[]'}),
+								_1: {
+									ctor: '::',
+									_0: _elm_lang$html$Html$text('High Scores'),
+									_1: {
+										ctor: '::',
+										_0: _user$project$View$highScoreTable(model.highScores),
+										_1: {ctor: '[]'}
+									}
+								}
+							}
+						}
+					}),
+				_1: {ctor: '[]'}
+			});
+	} else {
+		return _evancz$elm_graphics$Element$toHtml(
+			A4(
+				_evancz$elm_graphics$Element$container,
+				width,
+				height,
+				_evancz$elm_graphics$Element$middle,
+				_user$project$Game_View$elementGame(model.game)));
+	}
+};

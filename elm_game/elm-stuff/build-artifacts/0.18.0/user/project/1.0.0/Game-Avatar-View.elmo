@@ -1,0 +1,708 @@
+var _user$project$Game_Avatar_View$avatarForm = function (avatar) {
+	var idle_right = '../graphic/avatar/idle/right.gif';
+	var idle_left = '../graphic/avatar/idle/left.gif';
+	var die_right = '../graphic/avatar/die/right.gif';
+	var die_left = '../graphic/avatar/die/left.gif';
+	var jump_right = '../graphic/avatar/jump/right.gif';
+	var jump_left = '../graphic/avatar/jump/left.gif';
+	var run_right = '../graphic/avatar/run/right.gif';
+	var run_left = '../graphic/avatar/run/left.gif';
+	var walk_right = '../graphic/avatar/walk/right.gif';
+	var walk_left = '../graphic/avatar/walk/left.gif';
+	var avatarHeight = 153;
+	var avatarWidth = 116;
+	if (_elm_lang$core$Native_Utils.cmp(avatar.hp, 0) < 1) {
+		var _p0 = avatar.dir;
+		if (_p0.ctor === 'Left') {
+			return _evancz$elm_graphics$Collage$group(
+				{
+					ctor: '::',
+					_0: A2(
+						_evancz$elm_graphics$Collage$alpha,
+						0,
+						_evancz$elm_graphics$Collage$toForm(
+							A3(_evancz$elm_graphics$Element$image, avatarHeight, avatarHeight, die_right))),
+					_1: _elm_lang$core$List$singleton(
+						A2(
+							_evancz$elm_graphics$Collage$alpha,
+							1,
+							_evancz$elm_graphics$Collage$toForm(
+								A3(_evancz$elm_graphics$Element$image, avatarHeight, avatarHeight, die_left))))
+				});
+		} else {
+			return _evancz$elm_graphics$Collage$group(
+				{
+					ctor: '::',
+					_0: A2(
+						_evancz$elm_graphics$Collage$alpha,
+						0,
+						_evancz$elm_graphics$Collage$toForm(
+							A3(_evancz$elm_graphics$Element$image, avatarHeight, avatarHeight, die_left))),
+					_1: _elm_lang$core$List$singleton(
+						A2(
+							_evancz$elm_graphics$Collage$alpha,
+							1,
+							_evancz$elm_graphics$Collage$toForm(
+								A3(_evancz$elm_graphics$Element$image, avatarHeight, avatarHeight, die_right))))
+				});
+		}
+	} else {
+		if (!_elm_lang$core$Native_Utils.eq(avatar.vy, 0)) {
+			var _p1 = avatar.dir;
+			if (_p1.ctor === 'Left') {
+				return _evancz$elm_graphics$Collage$group(
+					{
+						ctor: '::',
+						_0: A2(
+							_evancz$elm_graphics$Collage$alpha,
+							0,
+							_evancz$elm_graphics$Collage$toForm(
+								A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, walk_left))),
+						_1: {
+							ctor: '::',
+							_0: A2(
+								_evancz$elm_graphics$Collage$alpha,
+								0,
+								_evancz$elm_graphics$Collage$toForm(
+									A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, walk_right))),
+							_1: {
+								ctor: '::',
+								_0: A2(
+									_evancz$elm_graphics$Collage$alpha,
+									0,
+									_evancz$elm_graphics$Collage$toForm(
+										A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, run_left))),
+								_1: {
+									ctor: '::',
+									_0: A2(
+										_evancz$elm_graphics$Collage$alpha,
+										0,
+										_evancz$elm_graphics$Collage$toForm(
+											A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, run_right))),
+									_1: {
+										ctor: '::',
+										_0: A2(
+											_evancz$elm_graphics$Collage$alpha,
+											0,
+											_evancz$elm_graphics$Collage$toForm(
+												A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, die_left))),
+										_1: {
+											ctor: '::',
+											_0: A2(
+												_evancz$elm_graphics$Collage$alpha,
+												0,
+												_evancz$elm_graphics$Collage$toForm(
+													A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, die_right))),
+											_1: {
+												ctor: '::',
+												_0: A2(
+													_evancz$elm_graphics$Collage$alpha,
+													0,
+													_evancz$elm_graphics$Collage$toForm(
+														A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, idle_left))),
+												_1: {
+													ctor: '::',
+													_0: A2(
+														_evancz$elm_graphics$Collage$alpha,
+														0,
+														_evancz$elm_graphics$Collage$toForm(
+															A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, idle_right))),
+													_1: {
+														ctor: '::',
+														_0: A2(
+															_evancz$elm_graphics$Collage$alpha,
+															0,
+															_evancz$elm_graphics$Collage$toForm(
+																A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, jump_right))),
+														_1: _elm_lang$core$List$singleton(
+															A2(
+																_evancz$elm_graphics$Collage$alpha,
+																1,
+																_evancz$elm_graphics$Collage$toForm(
+																	A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, jump_left))))
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					});
+			} else {
+				return _evancz$elm_graphics$Collage$group(
+					{
+						ctor: '::',
+						_0: A2(
+							_evancz$elm_graphics$Collage$alpha,
+							0,
+							_evancz$elm_graphics$Collage$toForm(
+								A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, walk_left))),
+						_1: {
+							ctor: '::',
+							_0: A2(
+								_evancz$elm_graphics$Collage$alpha,
+								0,
+								_evancz$elm_graphics$Collage$toForm(
+									A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, walk_right))),
+							_1: {
+								ctor: '::',
+								_0: A2(
+									_evancz$elm_graphics$Collage$alpha,
+									0,
+									_evancz$elm_graphics$Collage$toForm(
+										A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, run_left))),
+								_1: {
+									ctor: '::',
+									_0: A2(
+										_evancz$elm_graphics$Collage$alpha,
+										0,
+										_evancz$elm_graphics$Collage$toForm(
+											A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, run_right))),
+									_1: {
+										ctor: '::',
+										_0: A2(
+											_evancz$elm_graphics$Collage$alpha,
+											0,
+											_evancz$elm_graphics$Collage$toForm(
+												A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, die_left))),
+										_1: {
+											ctor: '::',
+											_0: A2(
+												_evancz$elm_graphics$Collage$alpha,
+												0,
+												_evancz$elm_graphics$Collage$toForm(
+													A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, die_right))),
+											_1: {
+												ctor: '::',
+												_0: A2(
+													_evancz$elm_graphics$Collage$alpha,
+													0,
+													_evancz$elm_graphics$Collage$toForm(
+														A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, idle_left))),
+												_1: {
+													ctor: '::',
+													_0: A2(
+														_evancz$elm_graphics$Collage$alpha,
+														0,
+														_evancz$elm_graphics$Collage$toForm(
+															A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, idle_right))),
+													_1: {
+														ctor: '::',
+														_0: A2(
+															_evancz$elm_graphics$Collage$alpha,
+															0,
+															_evancz$elm_graphics$Collage$toForm(
+																A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, jump_left))),
+														_1: _elm_lang$core$List$singleton(
+															A2(
+																_evancz$elm_graphics$Collage$alpha,
+																1,
+																_evancz$elm_graphics$Collage$toForm(
+																	A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, jump_right))))
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					});
+			}
+		} else {
+			if (!_elm_lang$core$Native_Utils.eq(avatar.vx, 0)) {
+				if (_elm_lang$core$Native_Utils.cmp(avatar.speed.multiplier, 1.5) > -1) {
+					var _p2 = avatar.dir;
+					if (_p2.ctor === 'Left') {
+						return _evancz$elm_graphics$Collage$group(
+							{
+								ctor: '::',
+								_0: A2(
+									_evancz$elm_graphics$Collage$alpha,
+									0,
+									_evancz$elm_graphics$Collage$toForm(
+										A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, walk_left))),
+								_1: {
+									ctor: '::',
+									_0: A2(
+										_evancz$elm_graphics$Collage$alpha,
+										0,
+										_evancz$elm_graphics$Collage$toForm(
+											A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, walk_right))),
+									_1: {
+										ctor: '::',
+										_0: A2(
+											_evancz$elm_graphics$Collage$alpha,
+											1,
+											_evancz$elm_graphics$Collage$toForm(
+												A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, run_left))),
+										_1: {
+											ctor: '::',
+											_0: A2(
+												_evancz$elm_graphics$Collage$alpha,
+												0,
+												_evancz$elm_graphics$Collage$toForm(
+													A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, run_right))),
+											_1: {
+												ctor: '::',
+												_0: A2(
+													_evancz$elm_graphics$Collage$alpha,
+													0,
+													_evancz$elm_graphics$Collage$toForm(
+														A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, jump_left))),
+												_1: {
+													ctor: '::',
+													_0: A2(
+														_evancz$elm_graphics$Collage$alpha,
+														0,
+														_evancz$elm_graphics$Collage$toForm(
+															A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, jump_right))),
+													_1: {
+														ctor: '::',
+														_0: A2(
+															_evancz$elm_graphics$Collage$alpha,
+															0,
+															_evancz$elm_graphics$Collage$toForm(
+																A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, die_left))),
+														_1: {
+															ctor: '::',
+															_0: A2(
+																_evancz$elm_graphics$Collage$alpha,
+																0,
+																_evancz$elm_graphics$Collage$toForm(
+																	A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, die_right))),
+															_1: {
+																ctor: '::',
+																_0: A2(
+																	_evancz$elm_graphics$Collage$alpha,
+																	0,
+																	_evancz$elm_graphics$Collage$toForm(
+																		A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, idle_left))),
+																_1: _elm_lang$core$List$singleton(
+																	A2(
+																		_evancz$elm_graphics$Collage$alpha,
+																		0,
+																		_evancz$elm_graphics$Collage$toForm(
+																			A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, idle_right))))
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							});
+					} else {
+						return _evancz$elm_graphics$Collage$group(
+							{
+								ctor: '::',
+								_0: A2(
+									_evancz$elm_graphics$Collage$alpha,
+									0,
+									_evancz$elm_graphics$Collage$toForm(
+										A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, walk_left))),
+								_1: {
+									ctor: '::',
+									_0: A2(
+										_evancz$elm_graphics$Collage$alpha,
+										0,
+										_evancz$elm_graphics$Collage$toForm(
+											A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, walk_right))),
+									_1: {
+										ctor: '::',
+										_0: A2(
+											_evancz$elm_graphics$Collage$alpha,
+											0,
+											_evancz$elm_graphics$Collage$toForm(
+												A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, run_left))),
+										_1: {
+											ctor: '::',
+											_0: A2(
+												_evancz$elm_graphics$Collage$alpha,
+												1,
+												_evancz$elm_graphics$Collage$toForm(
+													A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, run_right))),
+											_1: {
+												ctor: '::',
+												_0: A2(
+													_evancz$elm_graphics$Collage$alpha,
+													0,
+													_evancz$elm_graphics$Collage$toForm(
+														A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, jump_left))),
+												_1: {
+													ctor: '::',
+													_0: A2(
+														_evancz$elm_graphics$Collage$alpha,
+														0,
+														_evancz$elm_graphics$Collage$toForm(
+															A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, jump_right))),
+													_1: {
+														ctor: '::',
+														_0: A2(
+															_evancz$elm_graphics$Collage$alpha,
+															0,
+															_evancz$elm_graphics$Collage$toForm(
+																A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, die_left))),
+														_1: {
+															ctor: '::',
+															_0: A2(
+																_evancz$elm_graphics$Collage$alpha,
+																0,
+																_evancz$elm_graphics$Collage$toForm(
+																	A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, die_right))),
+															_1: {
+																ctor: '::',
+																_0: A2(
+																	_evancz$elm_graphics$Collage$alpha,
+																	0,
+																	_evancz$elm_graphics$Collage$toForm(
+																		A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, idle_left))),
+																_1: _elm_lang$core$List$singleton(
+																	A2(
+																		_evancz$elm_graphics$Collage$alpha,
+																		0,
+																		_evancz$elm_graphics$Collage$toForm(
+																			A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, idle_right))))
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							});
+					}
+				} else {
+					var _p3 = avatar.dir;
+					if (_p3.ctor === 'Left') {
+						return _evancz$elm_graphics$Collage$group(
+							{
+								ctor: '::',
+								_0: A2(
+									_evancz$elm_graphics$Collage$alpha,
+									1,
+									_evancz$elm_graphics$Collage$toForm(
+										A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, walk_left))),
+								_1: {
+									ctor: '::',
+									_0: A2(
+										_evancz$elm_graphics$Collage$alpha,
+										0,
+										_evancz$elm_graphics$Collage$toForm(
+											A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, walk_right))),
+									_1: {
+										ctor: '::',
+										_0: A2(
+											_evancz$elm_graphics$Collage$alpha,
+											0,
+											_evancz$elm_graphics$Collage$toForm(
+												A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, run_left))),
+										_1: {
+											ctor: '::',
+											_0: A2(
+												_evancz$elm_graphics$Collage$alpha,
+												0,
+												_evancz$elm_graphics$Collage$toForm(
+													A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, run_right))),
+											_1: {
+												ctor: '::',
+												_0: A2(
+													_evancz$elm_graphics$Collage$alpha,
+													0,
+													_evancz$elm_graphics$Collage$toForm(
+														A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, jump_left))),
+												_1: {
+													ctor: '::',
+													_0: A2(
+														_evancz$elm_graphics$Collage$alpha,
+														0,
+														_evancz$elm_graphics$Collage$toForm(
+															A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, jump_right))),
+													_1: {
+														ctor: '::',
+														_0: A2(
+															_evancz$elm_graphics$Collage$alpha,
+															0,
+															_evancz$elm_graphics$Collage$toForm(
+																A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, die_left))),
+														_1: {
+															ctor: '::',
+															_0: A2(
+																_evancz$elm_graphics$Collage$alpha,
+																0,
+																_evancz$elm_graphics$Collage$toForm(
+																	A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, die_right))),
+															_1: {
+																ctor: '::',
+																_0: A2(
+																	_evancz$elm_graphics$Collage$alpha,
+																	0,
+																	_evancz$elm_graphics$Collage$toForm(
+																		A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, idle_left))),
+																_1: _elm_lang$core$List$singleton(
+																	A2(
+																		_evancz$elm_graphics$Collage$alpha,
+																		0,
+																		_evancz$elm_graphics$Collage$toForm(
+																			A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, idle_right))))
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							});
+					} else {
+						return _evancz$elm_graphics$Collage$group(
+							{
+								ctor: '::',
+								_0: A2(
+									_evancz$elm_graphics$Collage$alpha,
+									0,
+									_evancz$elm_graphics$Collage$toForm(
+										A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, walk_left))),
+								_1: {
+									ctor: '::',
+									_0: A2(
+										_evancz$elm_graphics$Collage$alpha,
+										1,
+										_evancz$elm_graphics$Collage$toForm(
+											A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, walk_right))),
+									_1: {
+										ctor: '::',
+										_0: A2(
+											_evancz$elm_graphics$Collage$alpha,
+											0,
+											_evancz$elm_graphics$Collage$toForm(
+												A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, run_left))),
+										_1: {
+											ctor: '::',
+											_0: A2(
+												_evancz$elm_graphics$Collage$alpha,
+												0,
+												_evancz$elm_graphics$Collage$toForm(
+													A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, run_right))),
+											_1: {
+												ctor: '::',
+												_0: A2(
+													_evancz$elm_graphics$Collage$alpha,
+													0,
+													_evancz$elm_graphics$Collage$toForm(
+														A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, jump_left))),
+												_1: {
+													ctor: '::',
+													_0: A2(
+														_evancz$elm_graphics$Collage$alpha,
+														0,
+														_evancz$elm_graphics$Collage$toForm(
+															A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, jump_right))),
+													_1: {
+														ctor: '::',
+														_0: A2(
+															_evancz$elm_graphics$Collage$alpha,
+															0,
+															_evancz$elm_graphics$Collage$toForm(
+																A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, die_left))),
+														_1: {
+															ctor: '::',
+															_0: A2(
+																_evancz$elm_graphics$Collage$alpha,
+																0,
+																_evancz$elm_graphics$Collage$toForm(
+																	A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, die_right))),
+															_1: {
+																ctor: '::',
+																_0: A2(
+																	_evancz$elm_graphics$Collage$alpha,
+																	0,
+																	_evancz$elm_graphics$Collage$toForm(
+																		A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, idle_left))),
+																_1: _elm_lang$core$List$singleton(
+																	A2(
+																		_evancz$elm_graphics$Collage$alpha,
+																		0,
+																		_evancz$elm_graphics$Collage$toForm(
+																			A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, idle_right))))
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							});
+					}
+				}
+			} else {
+				var _p4 = avatar.dir;
+				if (_p4.ctor === 'Left') {
+					return _evancz$elm_graphics$Collage$group(
+						{
+							ctor: '::',
+							_0: A2(
+								_evancz$elm_graphics$Collage$alpha,
+								0,
+								_evancz$elm_graphics$Collage$toForm(
+									A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, walk_left))),
+							_1: {
+								ctor: '::',
+								_0: A2(
+									_evancz$elm_graphics$Collage$alpha,
+									0,
+									_evancz$elm_graphics$Collage$toForm(
+										A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, walk_right))),
+								_1: {
+									ctor: '::',
+									_0: A2(
+										_evancz$elm_graphics$Collage$alpha,
+										0,
+										_evancz$elm_graphics$Collage$toForm(
+											A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, run_left))),
+									_1: {
+										ctor: '::',
+										_0: A2(
+											_evancz$elm_graphics$Collage$alpha,
+											0,
+											_evancz$elm_graphics$Collage$toForm(
+												A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, run_right))),
+										_1: {
+											ctor: '::',
+											_0: A2(
+												_evancz$elm_graphics$Collage$alpha,
+												0,
+												_evancz$elm_graphics$Collage$toForm(
+													A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, jump_left))),
+											_1: {
+												ctor: '::',
+												_0: A2(
+													_evancz$elm_graphics$Collage$alpha,
+													0,
+													_evancz$elm_graphics$Collage$toForm(
+														A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, jump_right))),
+												_1: {
+													ctor: '::',
+													_0: A2(
+														_evancz$elm_graphics$Collage$alpha,
+														0,
+														_evancz$elm_graphics$Collage$toForm(
+															A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, die_left))),
+													_1: {
+														ctor: '::',
+														_0: A2(
+															_evancz$elm_graphics$Collage$alpha,
+															0,
+															_evancz$elm_graphics$Collage$toForm(
+																A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, die_right))),
+														_1: {
+															ctor: '::',
+															_0: A2(
+																_evancz$elm_graphics$Collage$alpha,
+																1,
+																_evancz$elm_graphics$Collage$toForm(
+																	A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, idle_left))),
+															_1: _elm_lang$core$List$singleton(
+																A2(
+																	_evancz$elm_graphics$Collage$alpha,
+																	0,
+																	_evancz$elm_graphics$Collage$toForm(
+																		A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, idle_right))))
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						});
+				} else {
+					return _evancz$elm_graphics$Collage$group(
+						{
+							ctor: '::',
+							_0: A2(
+								_evancz$elm_graphics$Collage$alpha,
+								0,
+								_evancz$elm_graphics$Collage$toForm(
+									A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, walk_left))),
+							_1: {
+								ctor: '::',
+								_0: A2(
+									_evancz$elm_graphics$Collage$alpha,
+									0,
+									_evancz$elm_graphics$Collage$toForm(
+										A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, walk_right))),
+								_1: {
+									ctor: '::',
+									_0: A2(
+										_evancz$elm_graphics$Collage$alpha,
+										0,
+										_evancz$elm_graphics$Collage$toForm(
+											A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, run_left))),
+									_1: {
+										ctor: '::',
+										_0: A2(
+											_evancz$elm_graphics$Collage$alpha,
+											0,
+											_evancz$elm_graphics$Collage$toForm(
+												A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, run_right))),
+										_1: {
+											ctor: '::',
+											_0: A2(
+												_evancz$elm_graphics$Collage$alpha,
+												0,
+												_evancz$elm_graphics$Collage$toForm(
+													A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, jump_left))),
+											_1: {
+												ctor: '::',
+												_0: A2(
+													_evancz$elm_graphics$Collage$alpha,
+													0,
+													_evancz$elm_graphics$Collage$toForm(
+														A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, jump_right))),
+												_1: {
+													ctor: '::',
+													_0: A2(
+														_evancz$elm_graphics$Collage$alpha,
+														0,
+														_evancz$elm_graphics$Collage$toForm(
+															A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, die_left))),
+													_1: {
+														ctor: '::',
+														_0: A2(
+															_evancz$elm_graphics$Collage$alpha,
+															0,
+															_evancz$elm_graphics$Collage$toForm(
+																A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, die_right))),
+														_1: {
+															ctor: '::',
+															_0: A2(
+																_evancz$elm_graphics$Collage$alpha,
+																0,
+																_evancz$elm_graphics$Collage$toForm(
+																	A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, idle_left))),
+															_1: _elm_lang$core$List$singleton(
+																A2(
+																	_evancz$elm_graphics$Collage$alpha,
+																	1,
+																	_evancz$elm_graphics$Collage$toForm(
+																		A3(_evancz$elm_graphics$Element$image, avatarWidth, avatarHeight, idle_right))))
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						});
+				}
+			}
+		}
+	}
+};

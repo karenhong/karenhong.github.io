@@ -1,0 +1,245 @@
+var _user$project$Game_Update$isCollidingUnit = F2(
+	function (avatar, platform) {
+		var _p0 = platform;
+		if (_p0.ctor === 'Just') {
+			var _p2 = _p0._0;
+			var _p1 = _p2.unit;
+			if (_p1.ctor === 'Zombie') {
+				return _elm_lang$core$Native_Utils.cmp(
+					_elm_lang$core$Basics$abs(
+						(_p2.x + _elm_lang$core$Tuple$first(_p1._0)) - avatar.x),
+					20) < 1;
+			} else {
+				return _elm_lang$core$Native_Utils.cmp(
+					_elm_lang$core$Basics$abs(_p2.x - avatar.x),
+					20) < 1;
+			}
+		} else {
+			return false;
+		}
+	});
+var _user$project$Game_Update$withinEdges = F2(
+	function (avatar, platform) {
+		var leftEdge = (platform.x - (platform.w / 2)) - 5;
+		var rightEdge = (platform.x + (platform.w / 2)) + 5;
+		return (_elm_lang$core$Native_Utils.cmp(avatar.x, rightEdge) < 1) && (_elm_lang$core$Native_Utils.cmp(avatar.x, leftEdge) > -1);
+	});
+var _user$project$Game_Update$standingOn = F2(
+	function (avatar, platform) {
+		var platformStandingLevel = platform.y + _user$project$ViewUtil$platformBuffer;
+		return _elm_lang$core$Native_Utils.cmp(
+			_elm_lang$core$Basics$abs(platformStandingLevel - avatar.y),
+			20) < 1;
+	});
+var _user$project$Game_Update$onGivenPlatform = F2(
+	function (avatar, platform) {
+		return A2(_user$project$Game_Update$standingOn, avatar, platform) && A2(_user$project$Game_Update$withinEdges, avatar, platform);
+	});
+var _user$project$Game_Update$scrollPlatform = F3(
+	function (avatar, motionMultiplier, platform) {
+		return _elm_lang$core$Native_Utils.update(
+			platform,
+			{x: platform.x - (avatar.vx * motionMultiplier)});
+	});
+var _user$project$Game_Update$extendPlatforms = F2(
+	function (newPlatform, platforms) {
+		var _p3 = _elm_lang$core$List$head(platforms);
+		if (_p3.ctor === 'Just') {
+			return {
+				ctor: '::',
+				_0: A2(_user$project$Game_GamePlatform_Update$generatePlatform, newPlatform, _p3._0),
+				_1: platforms
+			};
+		} else {
+			return platforms;
+		}
+	});
+var _user$project$Game_Update$isSideScrolling = function (avatar) {
+	return (_elm_lang$core$Native_Utils.cmp(avatar.x, 0) > -1) && _elm_lang$core$Native_Utils.eq(avatar.dir, _user$project$Game_Avatar_Model$Right);
+};
+var _user$project$Game_Update$physics = F3(
+	function (avatar, multiplier, standing) {
+		return _elm_lang$core$Native_Utils.update(
+			avatar,
+			{
+				x: _user$project$Game_Update$isSideScrolling(avatar) ? 0 : (avatar.x + (avatar.vx * multiplier)),
+				vx: ((_elm_lang$core$Native_Utils.cmp(avatar.x, 0 - _user$project$ViewUtil$halfWidth) < 1) && _elm_lang$core$Native_Utils.eq(avatar.dir, _user$project$Game_Avatar_Model$Left)) ? 0 : avatar.vx,
+				y: avatar.y + (avatar.vy * multiplier),
+				vy: (standing && (_elm_lang$core$Native_Utils.cmp(avatar.vy, 0) < 1)) ? 0 : (avatar.vy - (multiplier * 0.4)),
+				score: (_user$project$Game_Update$isSideScrolling(avatar) && (!_elm_lang$core$Native_Utils.eq(avatar.vx, 0))) ? (avatar.score + _elm_lang$core$Basics$round(1 * multiplier)) : avatar.score,
+				speed: A2(_user$project$Game_Avatar_Update$checkTimeLimit, avatar, multiplier),
+				invincible: A2(_user$project$Game_Avatar_Update$checkShieldTime, avatar, multiplier)
+			});
+	});
+var _user$project$Game_Update$unitAtRightEdge = F2(
+	function (platform, offset) {
+		var rightEdge = (platform.x + (platform.w / 2)) - 15;
+		return _elm_lang$core$Native_Utils.cmp(platform.x + offset, rightEdge) > -1;
+	});
+var _user$project$Game_Update$unitAtLeftEdge = F2(
+	function (platform, offset) {
+		var leftEdge = (platform.x - (platform.w / 2)) + 15;
+		return _elm_lang$core$Native_Utils.cmp(platform.x + offset, leftEdge) < 1;
+	});
+var _user$project$Game_Update$movePlatformUnit = F2(
+	function (motionMultiplier, platform) {
+		var _p4 = platform.unit;
+		if (_p4.ctor === 'Zombie') {
+			var _p6 = _p4._0;
+			var currentDir = _elm_lang$core$Tuple$second(_p6);
+			return _elm_lang$core$Native_Utils.update(
+				platform,
+				{
+					unit: function () {
+						var _p5 = currentDir;
+						if (_p5.ctor === 'Left') {
+							var newOffset = _elm_lang$core$Tuple$first(_p6) - (1 * motionMultiplier);
+							var newDir = A2(_user$project$Game_Update$unitAtLeftEdge, platform, newOffset) ? _user$project$Game_GamePlatform_Model$Right : _user$project$Game_GamePlatform_Model$Left;
+							return _user$project$Game_GamePlatform_Model$Zombie(
+								{ctor: '_Tuple2', _0: newOffset, _1: newDir});
+						} else {
+							var newOffset = _elm_lang$core$Tuple$first(_p6) + (1 * motionMultiplier);
+							var newDir = A2(_user$project$Game_Update$unitAtRightEdge, platform, newOffset) ? _user$project$Game_GamePlatform_Model$Left : _user$project$Game_GamePlatform_Model$Right;
+							return _user$project$Game_GamePlatform_Model$Zombie(
+								{ctor: '_Tuple2', _0: newOffset, _1: newDir});
+						}
+					}()
+				});
+		} else {
+			return platform;
+		}
+	});
+var _user$project$Game_Update$updatePlatformUnits = F2(
+	function (platforms, motionMultiplier) {
+		return A2(
+			_elm_lang$core$List$map,
+			function (platform) {
+				return platform(motionMultiplier);
+			}(_user$project$Game_Update$movePlatformUnit),
+			platforms);
+	});
+var _user$project$Game_Update$updateMotion = F2(
+	function (game, motionMultiplier) {
+		var currentPlatform = _elm_lang$core$List$head(
+			A2(
+				_elm_lang$core$List$filter,
+				function (platform) {
+					return platform(game.avatar);
+				}(_user$project$Game_Update$onGivenPlatform),
+				game.platforms));
+		var avatarColliding = A2(_user$project$Game_Update$isCollidingUnit, game.avatar, currentPlatform);
+		var updatedPlatforms = function () {
+			if (avatarColliding && _user$project$Game_GamePlatform_Update$hasCollectible(currentPlatform)) {
+				var _p7 = currentPlatform;
+				if (_p7.ctor === 'Just') {
+					var _p8 = _p7._0;
+					return A3(
+						_elm_community$list_extra$List_Extra$replaceIf,
+						function (platform) {
+							return _elm_lang$core$Native_Utils.eq(platform, _p8);
+						},
+						_user$project$Game_GamePlatform_Update$removeCollectible(_p8),
+						A2(_user$project$Game_Update$updatePlatformUnits, game.platforms, motionMultiplier));
+				} else {
+					return A2(_user$project$Game_Update$updatePlatformUnits, game.platforms, motionMultiplier);
+				}
+			} else {
+				return A2(_user$project$Game_Update$updatePlatformUnits, game.platforms, motionMultiplier);
+			}
+		}();
+		var movedAvatar = function () {
+			var _p9 = currentPlatform;
+			if (_p9.ctor === 'Just') {
+				return avatarColliding ? A3(
+					_user$project$Game_Update$physics,
+					A2(_user$project$Game_Avatar_Update$updateStatus, _p9._0, game.avatar),
+					motionMultiplier,
+					true) : A3(_user$project$Game_Update$physics, game.avatar, motionMultiplier, true);
+			} else {
+				return A3(_user$project$Game_Update$physics, game.avatar, motionMultiplier, false);
+			}
+		}();
+		return _elm_lang$core$Native_Utils.update(
+			game,
+			{
+				platforms: (_user$project$Game_Update$isSideScrolling(game.avatar) && (!_elm_lang$core$Native_Utils.eq(game.avatar.vx, 0))) ? A2(
+					_elm_lang$core$List$map,
+					function (platform) {
+						return A2(platform, game.avatar, motionMultiplier);
+					}(_user$project$Game_Update$scrollPlatform),
+					A2(
+						_elm_lang$core$List$filter,
+						function (platform) {
+							return _elm_lang$core$Native_Utils.cmp(platform.x, 0 - _user$project$ViewUtil$width) > 0;
+						},
+						updatedPlatforms)) : updatedPlatforms,
+				avatar: movedAvatar
+			});
+	});
+var _user$project$Game_Update$updateGame = F2(
+	function (game, lag) {
+		updateGame:
+		while (true) {
+			var motionMultipler = (_elm_lang$core$Native_Utils.cmp(lag, _user$project$Game_Model$msPerUpdate) > -1) ? 1 : (lag / _user$project$Game_Model$msPerUpdate);
+			var newGame = A2(_user$project$Game_Update$updateMotion, game, motionMultipler);
+			if (_elm_lang$core$Native_Utils.cmp(lag, _user$project$Game_Model$msPerUpdate) > -1) {
+				var _v7 = newGame,
+					_v8 = lag - _user$project$Game_Model$msPerUpdate;
+				game = _v7;
+				lag = _v8;
+				continue updateGame;
+			} else {
+				return newGame;
+			}
+		}
+	});
+var _user$project$Game_Update$update = F2(
+	function (msg, game) {
+		var _p10 = msg;
+		switch (_p10.ctor) {
+			case 'TimeUpdate':
+				return ((_elm_lang$core$Native_Utils.cmp(game.avatar.hp, 0) < 1) || (_elm_lang$core$Native_Utils.cmp(game.avatar.y, _user$project$ViewUtil$pit) < 0)) ? _elm_lang$core$Native_Utils.update(
+					game,
+					{state: _user$project$Game_Model$Over}) : (_elm_lang$core$Native_Utils.eq(game.state, _user$project$Game_Model$Playing) ? A2(_user$project$Game_Update$updateGame, game, _p10._0) : game);
+			case 'MsgForAvatar':
+				return _elm_lang$core$Native_Utils.update(
+					game,
+					{
+						avatar: A3(
+							_user$project$Game_Avatar_Update$update,
+							_p10._0,
+							game.avatar,
+							A2(
+								_elm_lang$core$List$any,
+								function (platform) {
+									return platform(game.avatar);
+								}(_user$project$Game_Update$onGivenPlatform),
+								game.platforms))
+					});
+			default:
+				return _elm_lang$core$Native_Utils.update(
+					game,
+					{
+						platforms: A2(_user$project$Game_Update$extendPlatforms, _p10._0, game.platforms)
+					});
+		}
+	});
+var _user$project$Game_Update$NewPlatform = function (a) {
+	return {ctor: 'NewPlatform', _0: a};
+};
+var _user$project$Game_Update$MsgForAvatar = function (a) {
+	return {ctor: 'MsgForAvatar', _0: a};
+};
+var _user$project$Game_Update$TimeUpdate = function (a) {
+	return {ctor: 'TimeUpdate', _0: a};
+};
+var _user$project$Game_Update$NewScore = function (a) {
+	return {ctor: 'NewScore', _0: a};
+};
+var _user$project$Game_Update$GeneratePlatform = {ctor: 'GeneratePlatform'};
+var _user$project$Game_Update$OutNoOp = {ctor: 'OutNoOp'};
+var _user$project$Game_Update$updateOutMsg = function (game) {
+	return _elm_lang$core$Native_Utils.eq(game.state, _user$project$Game_Model$Over) ? _user$project$Game_Update$NewScore(game.avatar.score) : ((_elm_lang$core$Native_Utils.cmp(
+		_elm_lang$core$List$length(game.platforms),
+		15) < 1) ? _user$project$Game_Update$GeneratePlatform : _user$project$Game_Update$OutNoOp);
+};
