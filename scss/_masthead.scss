@@ -13,7 +13,7 @@ header.masthead {
   h5 {
     font-weight: 100;
     font-size: 18px;
-    color: $primary;
+    color: black;
   }
   h1 {
     font-weight: 600;
@@ -21,6 +21,7 @@ header.masthead {
   }
   p {
     font-size: 17px;
+    color: white;
   }
   a {
     font-size: 17px;
@@ -29,10 +30,12 @@ header.masthead {
     &:focus,
     &:hover {
       text-decoration: none;
+      color: darken($primary, 10%);
     }
+    color: black
   }
   .fa-file-pdf-o {
-    color: $primary;
+    color: black;
   }
 }
 

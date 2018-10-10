@@ -160,19 +160,22 @@ header.masthead {
   header.masthead h5 {
     font-weight: 100;
     font-size: 18px;
-    color: #f786aa; }
+    color: black; }
   header.masthead h1 {
     font-weight: 600;
     font-size: 70px; }
   header.masthead p {
-    font-size: 17px; }
+    font-size: 17px;
+    color: white; }
   header.masthead a {
     font-size: 17px;
-    font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+    font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: black; }
     header.masthead a:active, header.masthead a:focus, header.masthead a:hover {
-      text-decoration: none; }
+      text-decoration: none;
+      color: #f45688; }
   header.masthead .fa-file-pdf-o {
-    color: #f786aa; }
+    color: black; }
 
 ul.social-buttons {
   margin-bottom: 0; }
@@ -379,7 +382,7 @@ ul.social-buttons {
       color: white;
       border: 7px solid #e9ecef;
       border-radius: 100%;
-      background-color: #f786aa; }
+      background-color: #ffd500; }
       .timeline > li .timeline-image h4 {
         font-size: 10px;
         line-height: 14px;
