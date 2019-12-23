@@ -209,7 +209,7 @@ header.masthead h3 {
 header.masthead h5 {
   font-weight: 100;
   font-size: 18px;
-  color: black;
+  color: #f786aa;
 }
 
 header.masthead h1 {
@@ -225,7 +225,7 @@ header.masthead p {
 header.masthead a {
   font-size: 17px;
   font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  color: black;
+  color: #f786aa;
 }
 
 header.masthead a:active, header.masthead a:focus, header.masthead a:hover {

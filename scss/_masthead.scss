@@ -13,7 +13,7 @@ header.masthead {
   h5 {
     font-weight: 100;
     font-size: 18px;
-    color: black;
+    color: $primary;
   }
   h1 {
     font-weight: 600;
@@ -32,7 +32,7 @@ header.masthead {
       text-decoration: none;
       color: darken($primary, 10%);
     }
-    color: black
+    color: $primary
   }
   .fa-file-pdf-o {
     color: black;
