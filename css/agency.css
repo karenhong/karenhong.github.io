@@ -441,6 +441,14 @@ ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons l
   background-color: #1a1a1c;
 }
 
+.list-group-item-no-hover {
+  background-color: #262629;
+}
+
+.list-group-item-no-hover:active, .list-group-item-no-hover:focus, .list-group-item-no-hover:hover {
+  background-color: #262629;
+}
+
 .timeline {
   position: relative;
   padding: 0;

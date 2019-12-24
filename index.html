@@ -227,6 +227,25 @@
                 <h3 class="section-subheading text-muted">Learn about my previous co-op terms and work experience</h3>
             </div>
         </div>
+        <div class="row pt-3" id="betrack">
+            <div class="col-sm-7"><h2>The Social Health Lab</h2></div>
+            <div class="col-sm-5 text-md-right"><h4 class="experience-subtitle">September 2019 - Present</h4></div>
+        </div>
+        <div class="row pb-3">
+            <div class="col-sm-7">
+                <h3 class="experience-job-title">Part-Time Research Assistant (Software Development)</h3>
+                <h5 class="experience-subtitle">A research lab in the Department of Psychology at the University of British Columbia.</h5>
+                <p>I am currently developing an Android application used for collecting survey and phone usage data to support the  smart-phone sensing study that is being conducted at the Social Health Lab. With the goal of being able to support many types of survey based studies, the application and backend server is being re-designed to be more generic and flexible.
+                </p>
+                <a href="https://chenlab.psych.ubc.ca/" class="btn btn-outline-light btn-lg">Visit Their Website</a>
+            </div>
+            <div class="col-sm-5">
+                <figure class="figure py-3">
+                    <img src="img/socialhealth.jpg" class="figure-img img-fluid rounded" alt="Image of the UBC Campus">
+                    <figcaption class="figure-caption">A library building on the UBC campus.</figcaption>
+                </figure>
+            </div>
+        </div>
         <div class="row pt-3" id="verity">
             <div class="col-sm-5 text-md-left"><h4 class="experience-subtitle">September 2018 - April 2019</h4></div>
             <div class="col-sm-7"><h2>Verity Studios</h2></div>
@@ -242,7 +261,7 @@
                 <h3 class="experience-job-title">Software Development Intern</h3>
                 <h5 class="experience-subtitle">Bringing together technology and the arts with indoor drone show systems. </h5>
                 <p>
-                    Most recently, I was working as a software development intern at Verity Studios. My focus as a member of the development team is on the tools that operators use to manage and monitor the drone show systems during performances. Check back to hear more about my experience at the company.
+                    As a member of the development team at Verity Studios, my focus was on the tools that operators use to manage and monitor the drone show systems during performances. Check back to hear more about my experience at the company.
                 </p>
                 <a href="https://veritystudios.com/" class="btn btn-outline-light btn-lg">Visit Their Website</a>
             </div>
@@ -319,6 +338,44 @@
         <div class="card-deck">
             <div class="card bg-portfolio border-0">
                 <div class="card-img-top portfolio-item">
+                    <a class="portfolio-link" data-toggle="modal" href="#dabModal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img class="img-fluid" src="img/portfolio/dab_main.png" alt="main page of the game">
+                    </a>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Dragon Adventure Bonanza</h5>
+                    <p class="card-text">A multi-level desktop platformer including enemy AI, animation, physics-based movement, and collision detection.</p>
+                </div>
+                <div class="card-footer">
+                    <p class="m-0">Skills: C++, OpenGL, ECS</p>
+                </div>
+            </div>
+            <div class="card bg-portfolio border-0">
+                <div class="card-img-top portfolio-item">
+                    <a class="portfolio-link" data-toggle="modal" href="#kernelModal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img class="img-fluid" src="img/portfolio/kernel.png" alt="">
+                    </a>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">A Simple Kernel</h5>
+                    <p class="card-text">A basic kernel capable of memory and process management, time-sharing, interprocess communication, and device interactions.</p>
+                </div>
+                <div class="card-footer">
+                    <p class="m-0">Skills: C, X86 assembly code</p>
+                </div>
+            </div>
+            <div class="card bg-portfolio border-0">
+                <div class="card-img-top portfolio-item">
                     <a class="portfolio-link" data-toggle="modal" href="#hololensRegistrationModal">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
@@ -330,12 +387,14 @@
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">Hololens Mesh Registration</h5>
-                    <p class="card-text">﻿Evaluated the performance of the the Guaranteed Outlier Removal algorithm (GORE) and RANSAC by analysing alignment errors and run-times on meshes generated from the Microsoft Hololens.</p>
+                    <p class="card-text">﻿Evaluated the performance of the the Guaranteed Outlier Removal algorithm (GORE) and RANSAC by analysing alignment errors and run-times on meshes generated by the Microsoft Hololens.</p>
                 </div>
                 <div class="card-footer">
                     <p class="m-0">Skills: Matlab</p>
                 </div>
             </div>
+        </div>
+        <div class="card-deck pt-3">
             <div class="card bg-portfolio border-0">
                 <div class="card-img-top portfolio-item">
                     <a class="portfolio-link" data-toggle="modal" href="#elmGameModal">
@@ -357,27 +416,6 @@
                     <p class="m-0">Skills: Elm, Functional Programming</p>
                 </div>
             </div>
-            <div class="card bg-portfolio border-0">
-                <div class="card-img-top portfolio-item">
-                    <a class="portfolio-link" data-toggle="modal" href="#ubcCourseModal">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img class="img-fluid" src="img/portfolio/ubc_course.jpg" alt="">
-                    </a>
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">UBC Course and Room Catalogue</h5>
-                    <p class="card-text">An API designed to parse, store, and query information about UBC courses and buildings.</p>
-                </div>
-                <div class="card-footer">
-                    <p class="m-0">Skills: Typescript, Node.js, OOP</p>
-                </div>
-            </div>
-        </div>
-        <div class="card-deck pt-3">
             <div class="card bg-portfolio border-0">
                 <div class="card-img-top portfolio-item">
                     <a class="portfolio-link" data-toggle="modal" href="#fatigueScienceModal">
@@ -416,26 +454,6 @@
                     <p class="m-0">Skills: PHP, SQL, Oracle, HTML, CSS</p>
                 </div>
             </div>
-            <div class="card bg-portfolio border-0">
-                <div class="card-img-top portfolio-item">
-                    <a class="portfolio-link" data-toggle="modal" href="#mindTheGapModal">
-                        <div class="portfolio-hover">
-                            <div class="portfolio-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img class="img-fluid" src="img/portfolio/mind_the_gap.jpg" alt="">
-                    </a>
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">Mind the Gap Android Application</h5>
-                    <p class="card-text">An Android application that presents information about the London Railway system.</p>
-                </div>
-                <div class="card-footer">
-                    <p class="m-0">Skills: Java, JUnit</p>
-                </div>
-            </div>
-        </div>
     </div>
 </section>
 
@@ -445,7 +463,7 @@
         <div class="row">
             <div class="col-lg-12 text-center">
                 <h2 class="section-heading text-uppercase">Education</h2>
-                <h3 class="section-subheading text-muted">UBC Computer Science Major. Year 5. Bachelor of Science. Expected May 2020.</h3>
+                <h3 class="section-subheading text-muted">UBC Computer Science Major. Bachelor of Science. Expected May 2020.</h3>
             </div>
         </div>
         <div class="text-center pb-5">
@@ -459,6 +477,41 @@
             </div>
         </div>
         <div class="list-group">
+            <div class="list-group-item list-group-item-action flex-column list-group-item-no-hover align-items-start">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">Distributed Systems (UBC CPSC 416)</h5>
+                    <p>In progress</p>
+                </div>
+                <p class="text-muted">Concepts and design of distributed systems. Communication architecture and models for interprocess communication. Process migration, naming, distributed file systems, fault tolerance, and concurrency control.</p>
+            </div>
+            <div class="list-group-item list-group-item-action flex-column list-group-item-no-hover align-items-start">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">Introduction to Compiler Construction (UBC CPSC 411)</h5>
+                    <p>In progress</p>
+                </div>
+                <p class="text-muted">A practical introduction to lexical analysis, syntactic analysis, type-checking, code generation and optimization. This will be used to design and implement a compiler for a small language.</p>
+            </div>
+            <a href="https://design.engineering.ubc.ca/design-courses/new-venture-design/" class="list-group-item list-group-item-action flex-column list-group-item-custom align-items-start">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">New Venture Design (UBC)</h5>
+                    <p>In progress</p>
+                </div>
+                <p class="text-muted">Teams comprising students in engineering and commerce create a business plan and a prototype or engineering solution of a novel product, process, or process component.</p>
+            </a>
+            <div class="list-group-item list-group-item-action flex-column list-group-item-no-hover align-items-start">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">Advanced Operating Systems (UBC CPSC 415)</h5>
+                    <p>A</p>
+                </div>
+                <p class="text-muted">Process synchronization and communication schemes, including message-passing and concepts of monitor and serializer. Virtual memory systems management and the problem of information sharing in such systems. The working set principle. Traps and interrupt handling. Elementary queuing theory and its application such as process scheduling, system balancing and load control. File systems and operating system design methodologies.</p>
+            </div>
+            <a href="https://www.students.cs.ubc.ca/~cs-320/2019W1/" class="list-group-item list-group-item-action flex-column list-group-item-custom align-items-start">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">Intermediate Algorithm Design and Analysis (UBC CPSC 320)</h5>
+                    <p>A-</p>
+                </div>
+                <p class="text-muted">Systematic study of basic concepts and techniques in the design and analysis of algorithms, illustrated from various problem areas. Topics include: models of computation; choice of data structures; graph-theoretic, algebraic, and text processing algorithms.</p>
+            </a>
             <a href="https://las.inf.ethz.ch/teaching/introml-s18" class="list-group-item list-group-item-action flex-column list-group-item-custom align-items-start">
                 <div class="d-flex w-100 justify-content-between">
                     <h5 class="mb-1">Introduction to Machine Learning (ETH)</h5>
@@ -480,26 +533,19 @@
                 </div>
                 <p class="text-muted">The course covers camera models and calibration, feature tracking and matching, camera motion estimation via simultaneous localization and mapping (SLAM) and visual odometry (VO), epipolar and mult-view geometry, structure-from-motion, (multi-view) stereo, augmented reality, and image-based (re-)localization.</p>
             </a>
-            <a href="http://www.vvz.ethz.ch/Vorlesungsverzeichnis/lerneinheit.view?lerneinheitId=121008&semkez=2018S&ansicht=KATALOGDATEN&lang=en" class="list-group-item list-group-item-action flex-column list-group-item-custom align-items-start">
-                <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">Case Studies from Practice (ETH) </h5>
-                    <p>Passed</p>
-                </div>
-                <p class="text-muted">The course is designed to provide students with an understanding of "real-life" computer science challenges in business settings and teach them how to address these.</p>
-            </a>
+<!--            <a href="http://www.vvz.ethz.ch/Vorlesungsverzeichnis/lerneinheit.view?lerneinheitId=121008&semkez=2018S&ansicht=KATALOGDATEN&lang=en" class="list-group-item list-group-item-action flex-column list-group-item-custom align-items-start">-->
+<!--                <div class="d-flex w-100 justify-content-between">-->
+<!--                    <h5 class="mb-1">Case Studies from Practice (ETH) </h5>-->
+<!--                    <p>Passed</p>-->
+<!--                </div>-->
+<!--                <p class="text-muted">The course is designed to provide students with an understanding of "real-life" computer science challenges in business settings and teach them how to address these.</p>-->
+<!--            </a>-->
             <a href="https://www.ugrad.cs.ubc.ca/~cs311/current/" class="list-group-item list-group-item-action flex-column list-group-item-custom align-items-start">
                 <div class="d-flex w-100 justify-content-between">
                     <h5 class="mb-1">Definition of Programming Languages (UBC CPSC 311)</h5>
                     <p>A-</p>
                 </div>
                 <p class="text-muted">Comparative study of advanced programming language features. Statement types, data types, variable binding, parameter passing mechanisms. Methods for syntactic and semantic description of programming languages.</p>
-            </a>
-            <a href="https://www.ugrad.cs.ubc.ca/~cs313/X/" class="list-group-item list-group-item-action flex-column list-group-item-custom align-items-start">
-                <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">Computer Hardware and Operating Systems (UBC CPSC 313)</h5>
-                    <p>A-</p>
-                </div>
-                <p class="text-muted">Instruction sets, pipelining, code optimization, caching, virtual memory management, dynamically linked libraries, exception processing, execution time of programs.</p>
             </a>
             <a href="https://sites.google.com/view/cpsc310-17w1/home" class="list-group-item list-group-item-action flex-column list-group-item-custom align-items-start">
                 <div class="d-flex w-100 justify-content-between">
@@ -514,13 +560,6 @@
                     <p>A</p>
                 </div>
                 <p class="text-muted">Overview of database systems, ER models, logical database design and normalization, formal relational query languages, SQL and other commercial languages,data warehouses, special topics.</p>
-            </a>
-            <a href="https://www.ugrad.cs.ubc.ca/~cs221/2016W2/index.shtml" class="list-group-item list-group-item-action flex-column list-group-item-custom align-items-start">
-                <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">	Basic Algorithms and Data Structures (UBC CPSC 221)</h5>
-                    <p>A-</p>
-                </div>
-                <p class="text-muted">Design and analysis of basic algorithms and data structures; algorithm analysis methods, searching and sorting algorithms, basic data structures, graphs and concurrency.</p>
             </a>
         </div>
     </div>
@@ -755,6 +794,68 @@
                                 <li>Designed JUnit tests to ensure correctness of class models</li>
                                 <li>Utilized the OSMDroid and OSMBonusPack to display the map with tubelines and stations</li>
                             </ul>
+                            <div class="modal-bottom">
+                                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                    <i class="fa fa-times"></i>
+                                    Close Project</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="portfolio-modal modal fade" id="kernelModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl"></div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <div class="modal-body">
+                            <!-- Project Details Go Here -->
+                            <h2 class="text-uppercase">A Simple Kernel</h2>
+                            <p class="item-intro text-muted"><br> November 2019</p>
+                            <!--<img class="img-fluid d-block mx-auto" src="img/portfolio/04-full.jpg" alt="">-->
+                            <p>Check back soon for more information about this project.
+                            </p>
+                            <div class="modal-bottom">
+                                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                    <i class="fa fa-times"></i>
+                                    Close Project</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="portfolio-modal modal fade" id="dabModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl"></div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <div class="modal-body">
+                            <!-- Project Details Go Here -->
+                            <h2 class="text-uppercase">Dragon Adventure Bonanza</h2>
+                            <p class="item-intro text-muted">2d platform game<br>December 2019</p>
+                            <!--<img class="img-fluid d-block mx-auto" src="img/portfolio/04-full.jpg" alt="">-->
+                            <p>Check back soon for more information about this project.
+                            </p>
                             <div class="modal-bottom">
                                 <button class="btn btn-primary" data-dismiss="modal" type="button">
                                     <i class="fa fa-times"></i>
