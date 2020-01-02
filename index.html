@@ -714,7 +714,7 @@
                             <h2 class="text-uppercase">Hololens Mesh Registration</h2>
                             <p class="item-intro text-muted">Analysis of the GORE Algorithm <br> June 2018</p>
                             <!--<img class="img-fluid d-block mx-auto" src="img/portfolio/04-full.jpg" alt="">-->
-                            <p>This project was completed as a part of the 3D Vision course at ETH. Read the final paper below.
+                            <p>This project was completed as a part of the 3D Vision course at ETH Zürich. Read the final paper below.
                             </p>
                             <ul class="list-inline pl-5">
                                 <li><a href="documents/3d-vision-project.pdf"><i class="fa fa-file-pdf-o pr-2"></i>Global Alignment of Meshes for the Microsoft HoloLens</a></li>
@@ -822,10 +822,33 @@
                         <div class="modal-body">
                             <!-- Project Details Go Here -->
                             <h2 class="text-uppercase">A Simple Kernel</h2>
-                            <p class="item-intro text-muted"><br> November 2019</p>
+                            <p class="item-intro text-muted">Bochs IA-32 (80x86) simulated kernel using C and X86 assembly code<br>November 2019</p>
                             <!--<img class="img-fluid d-block mx-auto" src="img/portfolio/04-full.jpg" alt="">-->
-                            <p>Check back soon for more information about this project.
+                            <p>To understand how operating systems are built, I implemented a basic kernel with a partner as a part of the CPSC 415 course.<br><br>
+                                I used a Bochs IA-32 (80x86) emulator to run the kernel. Starting from a small program that bootstraps into a basic kernel, I added the following functionality:
                             </p>
+                            <ul>
+                                <li>Basic memory management</li>
+                                <li>Process management
+                                    <ul>
+                                        <li>Time-sharing and process preemption</li>
+                                        <li>A sleep device</li>
+                                    </ul>
+                                </li>
+                                <li>Inter-process communication
+                                    <ul>
+                                        <li>Message passing</li>
+                                        <li>Signal handling</li>
+                                    </ul>
+                                </li>
+                                <li>Device interactions
+                                    <ul>
+                                        <li>A keyboard device</li>
+                                        <li>The random and zero virtual devices</li>
+                                    </ul>
+                                </li>
+                                <li>A simple shell that accepts a limited number of commands</li>
+                            </ul>
                             <div class="modal-bottom">
                                 <button class="btn btn-primary" data-dismiss="modal" type="button">
                                     <i class="fa fa-times"></i>
