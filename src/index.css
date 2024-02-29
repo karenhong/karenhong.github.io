@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body{
+  font-family: 'Raleway', sans-serif;
+  background: #F5E4D7;  
+}
+@font-face {
+  font-family: "Raleway";
+  src: url("./assets/Raleway-VariableFont_wght.ttf");
+}
+
+a.button {
+  text-decoration: none
+}
+
+a {
+  outline-color: transparent;
+  text-decoration: underline;
+}
+
+a:link {
+  color: #2978A0;
+}
+
+a:visited {
+  color: #2978A0;
+  filter: brightness(55%);
+}
+
+a:focus {
+  filter: brightness(55%);
+}
+
+a:hover {
+  color: #4A314D;
+}
+
+li {
+  padding-top: 20px;
+}
