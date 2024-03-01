@@ -6,7 +6,7 @@ import {
 
 function App() {
   return (
-      <div className="py-4 m-auto max-w-4xl">
+      <div className="m-auto max-w-4xl p-2">
         <main className="py-36">
           <div className="flex flex-row gap-x-5">
             <div className="flex-col">
